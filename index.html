@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="default" data-dark="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f0c29">
+  <meta name="description" content="Central profissional de sites para assistir animes online legendados e dublados. Pesquisa rápida, favoritos, temas e mais. Projeto por PEDRO AMV's 🎌.">
+  <meta property="og:title" content="Central de Animes 🔥 | Assistir Animes Online">
+  <meta property="og:description" content="Encontre os melhores sites para assistir animes online em um só lugar. Rápido, limpo e personalizável.">
+  <meta property="og:type" content="website">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>Central de Animes 🔥 | Assistir Animes Online</title>
+
+  <!-- Fonte moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gradient-main: linear-gradient(135deg, #ff4e8a, #ff9a3c);
+      --accent-color: #ff4e8a;
+      --accent-secondary: #ff9a3c;
+      --bg-gradient: linear-gradient(160deg, #0f0c29 0%, #1a1635 40%, #24243e 100%);
+      --card-bg: rgba(255, 255, 255, 0.055);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --card-hover: rgba(255, 255, 255, 0.09);
+      --text-main: #f4f4f8;
+      --text-muted: #9a9ab0;
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-dark="true"] {
+      --bg-gradient: linear-gradient(160deg, #000000 0%, #050508 50%, #0a0a0e 100%);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+      --card-hover: rgba(255, 255, 255, 0.055);
+    }
+
+    [data-theme="cyberpunk"] {
+      --gradient-main: linear-gradient(135deg, #00f2fe, #4facfe);
+      --accent-color: #00f2fe;
+      --accent-secondary: #4facfe;
+    }
+    [data-theme="emerald"] {
+      --gradient-main: linear-gradient(135deg, #11998e, #38ef7d);
+      --accent-color: #38ef7d;
+      --accent-secondary: #11998e;
+    }
+    [data-theme="purple"] {
+      --gradient-main: linear-gradient(135deg, #8a2be2, #da70d6);
+      --accent-color: #da70d6;
+      --accent-secondary: #8a2be2;
+    }
+    [data-theme="sunset"] {
+      --gradient-main: linear-gradient(135deg, #ff6b35, #f7c59f);
+      --accent-color: #ff6b35;
+      --accent-secondary: #f7c59f;
+    }
+    [data-theme="ocean"] {
+      --gradient-main: linear-gradient(135deg, #0077b6, #00b4d8);
+      --accent-color: #00b4d8;
+      --accent-secondary: #0077b6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 28px 16px 48px;
+      line-height: 1.5;
+      transition: background 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      padding: 4px 4px 0;
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.25;
+    }
+
+    .author-tag {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .author-tag strong {
+      color: var(--accent-secondary);
+      font-weight: 600;
+    }
+
+    header a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: opacity var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    header a:hover {
+      opacity: 0.8;
+    }
+
+    /* ========== TOOLBAR ========== */
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tool-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 9px 13px;
+      border-radius: 11px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+
+    .tool-btn:hover {
+      background: var(--card-hover);
+      border-color: var(--accent-color);
+      transform: translateY(-1px);
+    }
+
+    .tool-btn:active {
+      transform: translateY(0);
+    }
+
+    .more-btn {
+      border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+    }
+
+    /* ========== STATUS + FILTROS ========== */
+    .quick-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin: 0 2px 10px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .quick-filter {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .quick-filter button {
+      flex: 1;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      border-radius: 10px;
+      padding: 9px 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+
+    .quick-filter button:hover {
+      background: var(--card-hover);
+    }
+
+    .quick-filter button.active {
+      border-color: var(--accent-color);
+      color: var(--accent-secondary);
+      background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-color) 20%, transparent);
+    }
+
+    /* ========== INTRO ========== */
+    .intro {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      color: #d0d0dc;
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    /* ========== SEARCH ========== */
+    .search-box {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 42px 14px 42px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 18%, transparent);
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      display: none;
+      transition: color var(--transition);
+    }
+
+    .clear-search:hover {
+      color: var(--text-main);
+    }
+
+    .clear-search.visible {
+      display: block;
+    }
+
+    /* ========== SURPRISE ========== */
+    .surprise-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--gradient-main);
+      color: #fff;
+      text-align: center;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.96rem;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color) 30%, transparent);
+      transition: transform 0.15s ease, opacity 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .surprise-btn:hover {
+      opacity: 0.96;
+      box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-color) 40%, transparent);
+    }
+
+    .surprise-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ========== SECTION ========== */
+    .section-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin: 18px 4px 11px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "✦";
+      color: var(--accent-color);
+      font-size: 0.85rem;
+    }
+
+    /* ========== CARDS ========== */
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 13px 15px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.96rem;
+      font-weight: 500;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-color) 8%, transparent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .link-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
+
+    .link-card:hover::before {
+      opacity: 1;
+    }
+
+    .link-card:active {
+      transform: scale(0.985);
+    }
+
+    .card-content {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .card-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+      color: var(--accent-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .tag.popular {
+      background: color-mix(in srgb, #ffc107 18%, transparent);
+      color: #ffc107;
+    }
+
+    .fav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      cursor: pointer;
+      padding: 4px 5px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .fav-btn:hover {
+      transform: scale(1.18);
+      color: #ffc107;
+    }
+
+    .fav-btn.favorited {
+      color: #ffc107;
+      text-shadow: 0 0 12px rgba(255, 193, 7, 0.45);
+    }
+
+    .link-card .arrow {
+      color: var(--accent-secondary);
+      font-size: 1.05rem;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 8px;
+      opacity: 0.85;
+    }
+
+    .link-card:hover .arrow {
+      transform: translateX(3px);
+      opacity: 1;
+    }
+
+    mark {
+      background: color-mix(in srgb, var(--accent-color) 35%, transparent);
+      color: inherit;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    /* ========== EMPTY / NO RESULTS ========== */
+    .no-results {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 28px 16px;
+      display: none;
+      border: 1px dashed var(--card-border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+
+    .no-results.visible {
+      display: block;
+    }
+
+    /* ========== DISCLAIMER + FOOTER ========== */
+    .disclaimer {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 22px;
+      padding: 0 6px;
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      padding: 20px 12px 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+    }
+
+    footer strong {
+      color: var(--accent-secondary);
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    /* ========== OPTIONS PANEL ========== */
+    .options-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .options-overlay.open {
+      display: flex;
+    }
+
+    .options-panel {
+      width: 100%;
+      max-width: 520px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: #111116;
+      color: #f4f4f5;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px 22px 18px 18px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+      animation: panelIn 0.24s ease-out;
+    }
+
+    @keyframes panelIn {
+      from { transform: translateY(22px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .panel-head h2 {
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    .panel-close {
+      border: 0;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .panel-close:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .option-group {
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 15px 0;
+    }
+
+    .option-group h3 {
+      font-size: 0.78rem;
+      color: #b0b0be;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 600;
+    }
+
+    .option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 11px 0;
+      font-size: 0.9rem;
+    }
+
+    .option-row select {
+      background: #24242c;
+      color: #fff;
+      border: 1px solid #444450;
+      border-radius: 9px;
+      padding: 8px 10px;
+      font-size: 0.85rem;
+      max-width: 160px;
+      font-family: inherit;
+    }
+
+    .option-row input[type="checkbox"] {
+      accent-color: var(--accent-color);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .panel-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .panel-action {
+      background: #24242c;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 11px;
+      padding: 12px 9px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .panel-action:hover {
+      background: #2e2e38;
+    }
+
+    .panel-action.primary {
+      background: var(--gradient-main);
+      border: 0;
+      font-weight: 600;
+    }
+
+    .panel-note {
+      color: #9a9aab;
+      font-size: 0.74rem;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .recent-list {
+      color: #c9c9d4;
+      font-size: 0.82rem;
+      line-height: 1.75;
+      margin-top: 6px;
+    }
+
+    /* ========== TOAST ========== */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      transform: translate(-50%, 18px);
+      background: #24242c;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1200;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+      max-width: 90vw;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* ========== BACK TO TOP ========== */
+    .back-top {
+      position: fixed;
+      right: 18px;
+      bottom: 22px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.28s ease;
+      z-index: 100;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-top:active {
+      transform: scale(0.94);
+    }
+
+    /* ========== MODES ========== */
+    body.compact-mode .link-card {
+      padding: 9px 12px;
+      border-radius: 10px;
+    }
+
+    body.compact-mode .links-grid {
+      gap: 7px;
+    }
+
+    body.compact-mode .card-tags {
+      display: none;
+    }
+
+    body.large-text {
+      font-size: 1.07rem;
+    }
+
+    body.reduce-motion *,
+    body.reduce-motion *::before,
+    body.reduce-motion *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (min-width: 480px) {
+      body { padding: 36px 22px 56px; }
+      header h1 { font-size: 1.85rem; }
+      .link-card { font-size: 1rem; padding: 14px 16px; }
+    }
+
+    @media (min-width: 600px) {
+      .options-overlay { align-items: center; }
+      .options-panel { border-radius: 20px; }
+    }
+
+    @media (max-width: 360px) {
+      .toolbar { gap: 6px; }
+      .tool-btn { padding: 8px 10px; font-size: 0.75rem; }
+      .panel-actions { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.5rem; }
+    }
+
+    /* Focus visible for accessibility */
+    :focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    button:focus:not(:focus-visible),
+    a:focus:not(:focus-visible) {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Assistir Animes Online 🔥</h1>
+      <p class="author-tag">Projeto por <strong>PEDRO AMV's</strong> ✦</p>
+      <a href="https://www.tiktok.com/@pedroamv17" target="_blank" rel="noopener noreferrer">
+        @pedroamv17 no TikTok ↗
+      </a>
+    </header>
+
+    <div class="toolbar">
+      <button class="tool-btn" onclick="toggleDarkMode()" id="darkBtn" title="Alternar fundo preto (AMOLED)">
+        🌑 Fundo Preto
+      </button>
+      <button class="tool-btn" onclick="cycleTheme()" title="Trocar tema de cores">
+        🎨 Mudar Cor
+      </button>
+      <button class="tool-btn more-btn" id="optionsButton" onclick="openOptions()" aria-haspopup="dialog" aria-controls="optionsOverlay" title="Mais opções">
+        ⚙️ Mais opções
+      </button>
+    </div>
+
+    <div class="quick-status">
+      <span id="visibleCount">Carregando plataformas...</span>
+      <span id="favoriteCount">⭐ 0 favoritos</span>
+    </div>
+
+    <div class="quick-filter" aria-label="Filtros rápidos">
+      <button id="allFilter" class="active" onclick="setQuickFilter('all')">🌐 Todos</button>
+      <button id="favFilter" onclick="setQuickFilter('favorites')">⭐ Favoritos</button>
+      <button id="popularFilter" onclick="setQuickFilter('popular')">🔥 Populares</button>
+    </div>
+
+    <div class="intro">
+      Bem-vindo! Pesquise, favorite seus sites preferidos ou use o botão surpresa. Preferências salvas automaticamente neste navegador. 🎌
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Pesquisar site de anime... (aperte /)" autocomplete="off" spellcheck="false">
+      <button class="clear-search" id="clearSearch" onclick="clearSearch()" aria-label="Limpar pesquisa">✕</button>
+    </div>
+
+    <button class="surprise-btn" onclick="surpriseMe()" title="Abre um site aleatório da lista atual">
+      ✦ Surpreenda-me! Descubra um site aleatório
+    </button>
+
+    <div class="section-title">
+      Plataformas Disponíveis (<span id="totalCount">0</span>)
+    </div>
+
+    <div class="links-grid" id="linksGrid">
+      <!-- Cards gerados via JS para facilitar manutenção e filtros -->
+    </div>
+
+    <div id="noResults" class="no-results">
+      Nenhum site encontrado com esse nome. 😕<br>
+      <small style="opacity:0.8">Tente outro termo ou limpe a pesquisa.</small>
+    </div>
+
+    <p class="disclaimer">
+      Importante: Os links direcionam para plataformas externas. A disponibilidade, qualidade e conteúdo são de inteira responsabilidade de seus criadores. Use com bom senso e respeito aos direitos autorais.
+    </p>
+
+    <footer>
+      <strong>PEDRO AMV's</strong>
+      Uma central independente para explorar links de anime.<br>
+      Desenvolvido com ❤️ por PEDRO AMV's ✦<br>
+      © 2026 • Todos os direitos reservados.
+    </footer>
+  </div>
+
+  <!-- Painel de opções -->
+  <div class="options-overlay" id="optionsOverlay" role="dialog" aria-modal="true" aria-labelledby="optionsTitle" onclick="overlayClick(event)">
+    <section class="options-panel">
+      <div class="panel-head">
+        <h2 id="optionsTitle">⚙️ Central de opções</h2>
+        <button class="panel-close" onclick="closeOptions()" aria-label="Fechar painel">×</button>
+      </div>
+
+      <div class="option-group">
+        <h3>🎨 Aparência</h3>
+        <label class="option-row">
+          Tema de cores
+          <select id="themeSelect" onchange="setTheme(this.value)">
+            <option value="default">Rosa e laranja</option>
+            <option value="cyberpunk">Azul cyberpunk</option>
+            <option value="emerald">Verde esmeralda</option>
+            <option value="purple">Roxo</option>
+            <option value="sunset">Pôr do sol</option>
+            <option value="ocean">Oceano</option>
+          </select>
+        </label>
+        <label class="option-row">
+          Texto maior
+          <input id="largeTextToggle" type="checkbox" onchange="setLargeText(this.checked)">
+        </label>
+        <label class="option-row">
+          Cartões compactos
+          <input id="compactToggle" type="checkbox" onchange="setCompact(this.checked)">
+        </label>
+        <label class="option-row">
+          Reduzir animações
+          <input id="motionToggle" type="checkbox" onchange="setReducedMotion(this.checked)">
+        </label>
+      </div>
+
+      <div class="option-group">
+        <h3>📚 Organização</h3>
+        <label class="option-row">
+          Ordenar plataformas
+          <select id="sortSelect" onchange="sortLinks(this.value)">
+            <option value="default">Ordem original</option>
+            <option value="az">Nome: A → Z</option>
+            <option value="za">Nome: Z → A</option>
+            <option value="favorites">Favoritos primeiro</option>
+          </select>
+        </label>
+        <div class="option-row">
+          <span>Visitas recentes</span>
+          <button class="panel-action" onclick="showRecent()">Ver histórico</button>
+        </div>
+        <div id="recentList" class="recent-list" aria-live="polite">Suas plataformas visitadas aparecerão aqui.</div>
+      </div>
+
+      <div class="option-group">
+        <h3>🧰 Ferramentas</h3>
+        <div class="panel-actions">
+          <button class="panel-action primary" onclick="sharePage()">📤 Compartilhar</button>
+          <button class="panel-action" onclick="copyPageLink()">🔗 Copiar link</button>
+          <button class="panel-action" onclick="exportFavorites()">📥 Exportar favoritos</button>
+          <button class="panel-action" onclick="importFavorites()">📤 Importar favoritos</button>
+          <button class="panel-action" onclick="clearHistory()">🧹 Limpar histórico</button>
+          <button class="panel-action" onclick="resetPreferences()">↩️ Restaurar tudo</button>
+          <button class="panel-action" onclick="showAbout()" style="grid-column: 1 / -1;">ℹ️ Sobre o projeto</button>
+        </div>
+      </div>
+
+      <p class="panel-note">
+        Suas preferências, favoritos e histórico ficam salvos apenas neste navegador (localStorage). Nenhuma informação é enviada para servidores. Os links abrem plataformas externas de terceiros.
+      </p>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Input escondido para importar favoritos -->
+  <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="handleImport(event)">
+
+<script>
+  /* =========================
+     DADOS DAS PLATAFORMAS
+     ========================= */
+  const PLATFORMS = [
+    { name: "AnimeFire", url: "https://animefire.app/", tags: ["popular"] },
+    { name: "Goyabu", url: "https://goyabu.io/inicio", tags: ["popular"] },
+    { name: "Assistir Animes Online", url: "https://assistiranimesonline.net/", tags: ["popular"] },
+    { name: "Animes Orion", url: "https://animesorion.cc/", tags: ["popular"] },
+    { name: "Animes Digital", url: "https://animesdigital.org/index", tags: [] },
+    { name: "Animes Online", url: "https://animesonlinecc.to/", tags: [] },
+    { name: "Meus Animes", url: "https://meusanimes.blog/", tags: [] },
+    { name: "AnimeXHD", url: "https://animexhd.xyz/", tags: [] },
+    { name: "TopAnimes", url: "https://topanimes.net/", tags: [] },
+    { name: "AnimesDrive", url: "https://animesdrive.cloud/", tags: [] },
+    { name: "AnimesOnline 2", url: "https://animesonline.io/", tags: [] },
+    { name: "Sushi Animes", url: "https://sushianimes.com.br/", tags: [] },
+    { name: "AnimesOnlines 3", url: "https://animesonlines.net/", tags: [] },
+    { name: "AnimesBrasilOnline", url: "https://animesbrasilonline.com/", tags: [] },
+    { name: "Anime Sland", url: "https://animesland.net/", tags: [] },
+    { name: "Meus Animes 2", url: "https://meusanimes.club/", tags: [] },
+    { name: "Anikatsu", url: "https://anikatsu.top/", tags: [] },
+    { name: "AnimeQ", url: "https://animeq.cloud/", tags: [] },
+    { name: "Anroll", url: "https://anroll.io/", tags: ["popular"] },
+    { name: "AnimesOnline 4", url: "https://animesonline.blue/", tags: [] },
+    { name: "AniTube", url: "https://anitube.biz/", tags: [] }
+  ];
+
+  /* =========================
+     ESTADO GLOBAL
+     ========================= */
+  const linksGrid = document.getElementById('linksGrid');
+  let cards = [];                 // elementos DOM dos cards
+  let quickFilter = 'all';
+  let currentSort = 'default';
+  const HISTORY_KEY = 'site_history_v2';
+  const PREF_KEY = 'site_extra_preferences_v2';
+  const FAV_KEY = 'site_favs_v2';
+  const THEME_KEY = 'site_theme';
+  const DARK_KEY = 'site_dark';
+
+  /* =========================
+     INICIALIZAÇÃO
+     ========================= */
+  function init() {
+    renderCards();
+    loadPreferences();
+    loadFavorites();
+    bindEvents();
+    updateCounters();
+    document.getElementById('totalCount').textContent = PLATFORMS.length;
+  }
+
+  function renderCards() {
+    linksGrid.innerHTML = '';
+    PLATFORMS.forEach((p, index) => {
+      const a = document.createElement('a');
+      a.className = 'link-card';
+      a.href = p.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.dataset.name = p.name.toLowerCase();
+      a.dataset.index = index;
+      if (p.tags.includes('popular')) a.dataset.popular = 'true';
+
+      const tagsHtml = p.tags.map(t => {
+        if (t === 'popular') return `<span class="tag popular">Popular</span>`;
+        return `<span class="tag">${t}</span>`;
+      }).join('');
+
+      a.innerHTML = `
+        <div class="card-content">
+          <button class="fav-btn" aria-label="Favoritar ${p.name}" title="Favoritar">★</button>
+          <div class="card-text">
+            <span class="card-name">${p.name}</span>
+            ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ''}
+          </div>
+        </div>
+        <span class="arrow">↗</span>
+      `;
+
+      // Eventos
+      a.querySelector('.fav-btn').addEventListener('click', (e) => toggleFavorite(e, a));
+      a.addEventListener('click', () => addToHistory(a));
+
+      linksGrid.appendChild(a);
+    });
+    cards = Array.from(linksGrid.querySelectorAll('.link-card'));
+  }
+
+  /* =========================
+     PREFERÊNCIAS
+     ========================= */
+  function loadPreferences() {
+    const theme = localStorage.getItem(THEME_KEY) || 'default';
+    const isDark = localStorage.getItem(DARK_KEY) === 'true';
+    document.documentElement.setAttribute('data-theme', theme);
+    if (isDark) {
+      document.documentElement.setAttribute('data-dark', 'true');
+      document.getElementById('darkBtn').textContent = '🌕 Fundo Normal';
+    }
+
+    const prefs = JSON.parse(localStorage.getItem(PREF_KEY) || '{}');
+    document.body.classList.toggle('large-text', !!prefs.largeText);
+    document.body.classList.toggle('compact-mode', !!prefs.compact);
+    document.body.classList.toggle('reduce-motion', !!prefs.reduceMotion);
+
+    if (prefs.sort) currentSort = prefs.sort;
+    if (prefs.quickFilter) quickFilter = prefs.quickFilter;
+
+    // Aplicar filtro e ordenação salvos
+    setQuickFilter(quickFilter, false);
+    if (currentSort !== 'default') sortLinks(currentSort, false);
+  }
+
+  function saveExtraPrefs(patch) {
+    const prefs = JSON.parse(localStorage.getItem(PREF_KEY) || '{}');
+    Object.assign(prefs, patch);
+    localStorage.setItem(PREF_KEY, JSON.stringify(prefs));
+  }
+
+  /* =========================
+     TEMA / DARK MODE
+     ========================= */
+  function toggleDarkMode() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-dark') === 'true';
+    const btn = document.getElementById('darkBtn');
+
+    if (isDark) {
+      html.setAttribute('data-dark', 'normal');
+      localStorage.setItem(DARK_KEY, 'false');
+      btn.textContent = '🌑 Fundo Preto';
+      toast('Fundo normal ativado');
+    } else {
+      html.setAttribute('data-dark', 'true');
+      localStorage.setItem(DARK_KEY, 'true');
+      btn.textContent = '🌕 Fundo Normal';
+      toast('Modo AMOLED ativado');
+    }
+  }
+
+  function cycleTheme() {
+    const order = ['default', 'cyberpunk', 'emerald', 'purple', 'sunset', 'ocean'];
+    const current = document.documentElement.getAttribute('data-theme') || 'default';
+    const next = order[(order.indexOf(current) + 1) % order.length];
+    setTheme(next);
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_KEY, theme);
+    const sel = document.getElementById('themeSelect');
+    if (sel) sel.value = theme;
+    toast('Tema atualizado!');
+  }
+
+  /* =========================
+     FAVORITOS
+     ========================= */
+  function toggleFavorite(event, card) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const btn = card.querySelector('.fav-btn');
+    const isFav = btn.classList.toggle('favorited');
+
+    if (isFav) {
+      card.dataset.fav = 'true';
+      toast('Adicionado aos favoritos ⭐');
+    } else {
+      delete card.dataset.fav;
+      toast('Removido dos favoritos');
+    }
+
+    saveFavorites();
+    reorderIfNeeded();
+    filterLinks();
+  }
+
+  function saveFavorites() {
+    const favUrls = cards
+      .filter(c => c.dataset.fav === 'true')
+      .map(c => c.href);
+    localStorage.setItem(FAV_KEY, JSON.stringify(favUrls));
+  }
+
+  function loadFavorites() {
+    const saved = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
+    cards.forEach(card => {
+      if (saved.includes(card.href)) {
+        card.querySelector('.fav-btn').classList.add('favorited');
+        card.dataset.fav = 'true';
+      }
+    });
+    reorderIfNeeded();
+    filterLinks();
+  }
+
+  function reorderIfNeeded() {
+    // Só reordena automaticamente se o sort atual for "favorites" ou default com favoritos no topo
+    if (currentSort === 'favorites' || currentSort === 'default') {
+      const sorted = [...cards].sort((a, b) => {
+        const aFav = a.dataset.fav === 'true' ? 1 : 0;
+        const bFav = b.dataset.fav === 'true' ? 1 : 0;
+        if (bFav !== aFav) return bFav - aFav;
+        return Number(a.dataset.index) - Number(b.dataset.index);
+      });
+      sorted.forEach(card => linksGrid.appendChild(card));
+      cards = sorted;
+    }
+  }
+
+  /* =========================
+     FILTRO + PESQUISA
+     ========================= */
+  function setQuickFilter(filter, save = true) {
+    quickFilter = filter;
+    document.getElementById('allFilter').classList.toggle('active', filter === 'all');
+    document.getElementById('favFilter').classList.toggle('active', filter === 'favorites');
+    document.getElementById('popularFilter').classList.toggle('active', filter === 'popular');
+    if (save) saveExtraPrefs({ quickFilter: filter });
+    filterLinks();
+  }
+
+  function filterLinks() {
+    const input = document.getElementById('searchInput').value.trim().toLowerCase();
+    const clearBtn = document.getElementById('clearSearch');
+    clearBtn.classList.toggle('visible', input.length > 0);
+
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const nameEl = card.querySelector('.card-name');
+      const originalName = nameEl.dataset.original || nameEl.textContent;
+      if (!nameEl.dataset.original) nameEl.dataset.original = originalName;
+
+      const nameLower = originalName.toLowerCase();
+      const matchesText = !input || nameLower.includes(input);
+      const matchesFav = quickFilter !== 'favorites' || card.dataset.fav === 'true';
+      const matchesPopular = quickFilter !== 'popular' || card.dataset.popular === 'true';
+
+      if (matchesText && matchesFav && matchesPopular) {
+        card.style.display = 'flex';
+        visibleCount++;
+
+        // Highlight
+        if (input) {
+          const regex = new RegExp(`(${escapeRegExp(input)})`, 'gi');
+          nameEl.innerHTML = originalName.replace(regex, '<mark>$1</mark>');
+        } else {
+          nameEl.textContent = originalName;
+        }
+      } else {
+        card.style.display = 'none';
+        nameEl.textContent = originalName;
+      }
+    });
+
+    const noResults = document.getElementById('noResults');
+    noResults.classList.toggle('visible', visibleCount === 0);
+
+    updateCounters(visibleCount);
+  }
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function clearSearch() {
+    const input = document.getElementById('searchInput');
+    input.value = '';
+    input.focus();
+    filterLinks();
+  }
+
+  function updateCounters(visible) {
+    const total = cards.length;
+    const favCount = cards.filter(c => c.dataset.fav === 'true').length;
+    document.getElementById('visibleCount').textContent = `${visible ?? total} de ${total} plataformas`;
+    document.getElementById('favoriteCount').textContent = `⭐ ${favCount} favorito${favCount !== 1 ? 's' : ''}`;
+  }
+
+  /* =========================
+     ORDENAÇÃO
+     ========================= */
+  function sortLinks(mode, save = true) {
+    currentSort = mode;
+    if (save) saveExtraPrefs({ sort: mode });
+
+    const sorted = [...cards];
+
+    if (mode === 'az' || mode === 'za') {
+      sorted.sort((a, b) => {
+        const nameA = a.querySelector('.card-name').dataset.original || a.querySelector('.card-name').textContent;
+        const nameB = b.querySelector('.card-name').dataset.original || b.querySelector('.card-name').textContent;
+        const result = nameA.localeCompare(nameB, 'pt-BR');
+        return mode === 'az' ? result : -result;
+      });
+    } else if (mode === 'favorites') {
+      sorted.sort((a, b) => {
+        const aFav = a.dataset.fav === 'true' ? 1 : 0;
+        const bFav = b.dataset.fav === 'true' ? 1 : 0;
+        if (bFav !== aFav) return bFav - aFav;
+        return Number(a.dataset.index) - Number(b.dataset.index);
+      });
+    } else {
+      // default: favoritos no topo + ordem original
+      sorted.sort((a, b) => {
+        const aFav = a.dataset.fav === 'true' ? 1 : 0;
+        const bFav = b.dataset.fav === 'true' ? 1 : 0;
+        if (bFav !== aFav) return bFav - aFav;
+        return Number(a.dataset.index) - Number(b.dataset.index);
+      });
+    }
+
+    sorted.forEach(card => linksGrid.appendChild(card));
+    cards = sorted;
+    filterLinks();
+  }
+
+  /* =========================
+     SURPREENDA-ME
+     ========================= */
+  function surpriseMe() {
+    const visible = cards.filter(c => c.style.display !== 'none');
+    if (visible.length === 0) {
+      toast('Nenhum site visível no momento');
+      return;
+    }
+    const random = visible[Math.floor(Math.random() * visible.length)];
+    toast(`Abrindo: ${random.querySelector('.card-name').dataset.original || random.querySelector('.card-name').textContent}`);
+    setTimeout(() => window.open(random.href, '_blank'), 280);
+  }
+
+  /* =========================
+     HISTÓRICO
+     ========================= */
+  function addToHistory(card) {
+    const name = card.querySelector('.card-name').dataset.original || card.querySelector('.card-name').textContent;
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    const updated = [
+      { name, url: card.href, date: new Date().toLocaleString('pt-BR') },
+      ...history.filter(item => item.url !== card.href)
+    ].slice(0, 15);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(updated));
+  }
+
+  function showRecent() {
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    const target = document.getElementById('recentList');
+    target.innerHTML = '';
+
+    if (!history.length) {
+      target.textContent = 'Nenhuma visita registrada ainda.';
+      return;
+    }
+
+    history.forEach(item => {
+      const line = document.createElement('div');
+      line.textContent = `• ${item.name} — ${item.date}`;
+      target.appendChild(line);
+    });
+  }
+
+  function clearHistory() {
+    if (!confirm('Deseja apagar todo o histórico de visitas?')) return;
+    localStorage.removeItem(HISTORY_KEY);
+    showRecent();
+    toast('Histórico apagado');
+  }
+
+  /* =========================
+     OPÇÕES PANEL
+     ========================= */
+  function openOptions() {
+    document.getElementById('optionsOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    syncOptionControls();
+  }
+
+  function closeOptions() {
+    document.getElementById('optionsOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function overlayClick(e) {
+    if (e.target.id === 'optionsOverlay') closeOptions();
+  }
+
+  function syncOptionControls() {
+    const prefs = JSON.parse(localStorage.getItem(PREF_KEY) || '{}');
+    document.getElementById('themeSelect').value = document.documentElement.getAttribute('data-theme') || 'default';
+    document.getElementById('largeTextToggle').checked = !!prefs.largeText;
+    document.getElementById('compactToggle').checked = !!prefs.compact;
+    document.getElementById('motionToggle').checked = !!prefs.reduceMotion;
+    document.getElementById('sortSelect').value = currentSort;
+  }
+
+  function setLargeText(enabled) {
+    document.body.classList.toggle('large-text', enabled);
+    saveExtraPrefs({ largeText: enabled });
+  }
+
+  function setCompact(enabled) {
+    document.body.classList.toggle('compact-mode', enabled);
+    saveExtraPrefs({ compact: enabled });
+  }
+
+  function setReducedMotion(enabled) {
+    document.body.classList.toggle('reduce-motion', enabled);
+    saveExtraPrefs({ reduceMotion: enabled });
+  }
+
+  /* =========================
+     COMPARTILHAR / COPIAR
+     ========================= */
+  async function copyPageLink() {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      toast('Link copiado!');
+    } catch {
+      prompt('Copie o endereço:', location.href);
+    }
+  }
+
+  async function sharePage() {
+    const data = {
+      title: document.title,
+      text: 'Confira esta central de plataformas de anime!',
+      url: location.href
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+      } catch (err) {
+        if (err.name !== 'AbortError') toast('Não foi possível compartilhar');
+      }
+    } else {
+      copyPageLink();
+    }
+  }
+
+  /* =========================
+     EXPORT / IMPORT FAVORITOS
+     ========================= */
+  function exportFavorites() {
+    const favorites = cards
+      .filter(c => c.dataset.fav === 'true')
+      .map(c => ({
+        nome: c.querySelector('.card-name').dataset.original || c.querySelector('.card-name').textContent,
+        endereco: c.href
+      }));
+
+    if (!favorites.length) {
+      toast('Você ainda não tem favoritos');
+      return;
+    }
+
+    const blob = new Blob([JSON.stringify(favorites, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'meus-favoritos-animes.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    toast('Favoritos exportados!');
+  }
+
+  function importFavorites() {
+    document.getElementById('importFile').click();
+  }
+
+  function handleImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!Array.isArray(data)) throw new Error('Formato inválido');
+
+        const urls = data.map(item => item.endereco || item.url).filter(Boolean);
+        let count = 0;
+
+        cards.forEach(card => {
+          if (urls.includes(card.href)) {
+            card.querySelector('.fav-btn').classList.add('favorited');
+            card.dataset.fav = 'true';
+            count++;
+          }
+        });
+
+        saveFavorites();
+        reorderIfNeeded();
+        filterLinks();
+        toast(`${count} favorito(s) importado(s)!`);
+      } catch {
+        toast('Arquivo inválido. Use o JSON exportado pelo site.');
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = ''; // permite importar o mesmo arquivo de novo
+  }
+
+  /* =========================
+     RESET + ABOUT
+     ========================= */
+  function resetPreferences() {
+    if (!confirm('Restaurar aparência e preferências para o padrão?\nSeus favoritos serão mantidos.')) return;
+
+    [THEME_KEY, DARK_KEY, PREF_KEY].forEach(k => localStorage.removeItem(k));
+    document.documentElement.setAttribute('data-theme', 'default');
+    document.documentElement.setAttribute('data-dark', 'normal');
+    document.getElementById('darkBtn').textContent = '🌑 Fundo Preto';
+    document.body.classList.remove('large-text', 'compact-mode', 'reduce-motion');
+    currentSort = 'default';
+    quickFilter = 'all';
+    setQuickFilter('all', false);
+    sortLinks('default', false);
+    syncOptionControls();
+    toast('Preferências restauradas!');
+  }
+
+  function showAbout() {
+    alert("Assistir Animes Online\n\nUma central independente de links externos para animes.\n\nProjeto criado por PEDRO AMV's.\nTodos os sites listados são de terceiros.");
+  }
+
+  /* =========================
+     TOAST
+     ========================= */
+  function toast(message) {
+    const el = document.getElementById('toast');
+    el.textContent = message;
+    el.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+  }
+
+  /* =========================
+     EVENTOS GERAIS
+     ========================= */
+  function bindEvents() {
+    // Pesquisa
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', filterLinks);
+
+    // Atalho / ou Ctrl+K para focar pesquisa
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeOptions();
+        return;
+      }
+
+      // Foco na pesquisa
+      if ((e.key === '/' || (e.ctrlKey && e.key === 'k')) && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+    });
+
+    // Botão voltar ao topo
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 380);
+    }, { passive: true });
+  }
+
+  // Inicia tudo
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
